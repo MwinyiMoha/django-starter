@@ -12,6 +12,13 @@ app = Celery("core")
 app.config_from_object("django.conf:settings")
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
+app.conf.beat_schedule = {
+    "debug_task_every_minute": {
+        "task": "core.celery.debug_task",
+        "schedule": crontab(),
+    },
+}
+
 
 @app.task(bind=True)
 def debug_task(self):
