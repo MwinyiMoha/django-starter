@@ -33,9 +33,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
     "rest_framework",
     "rest_framework.authtoken",
     "rest_auth",
+    "allauth",
+    "allauth.account",
+    "rest_auth.registration",
     "accounts",
     "api",
 ]
@@ -85,3 +89,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/topics/auth/customizing/
 
 AUTH_USER_MODEL = "accounts.User"
+
+
+# Django sites framework settings
+# https://docs.djangoproject.com/en/2.2/ref/contrib/sites/
+
+SITE_ID = 1
