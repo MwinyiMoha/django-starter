@@ -38,3 +38,14 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+
+# Celery settings
+# https://docs.celeryproject.org/en/stable/getting-started/introduction.html
+
+BROKER_URL = os.environ["REDIS_URL"]
+CELERY_RESULT_BACKEND = os.environ["REDIS_URL"]
+CELERY_ACCEPT_CONTENT = ["application/json"]
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TIMEZONE = "Africa/Nairobi"
