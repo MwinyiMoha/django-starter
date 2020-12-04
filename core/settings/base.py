@@ -91,6 +91,20 @@ USE_TZ = True
 AUTH_USER_MODEL = "accounts.User"
 
 
+# Django all auth settings
+# https://django-allauth.readthedocs.io/en/latest/configuration.html
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+
+
 # Django sites framework settings
 # https://docs.djangoproject.com/en/2.2/ref/contrib/sites/
 
